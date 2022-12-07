@@ -9,7 +9,11 @@ export default async function (req, res) {
   const completion = await openai.createCompletion({
     model: "text-davinci-003",
     prompt: generatePrompt(req.body.animal),
-    temperature: 0.6,
+    temperature: 0.7,
+    max_tokens: 256,
+    top_p: 1,
+    frequency_penalty: 0,
+    presence_penalty: 0,
   });
   res.status(200).json({ result: completion.data.choices[0].text });
 }
@@ -17,7 +21,7 @@ export default async function (req, res) {
 function generatePrompt(animal) {
   const capitalizedAnimal =
     animal[0].toUpperCase() + animal.slice(1).toLowerCase();
-  return `Generate 1 good headline for my Content.
+  return `Generate an attractive headline for my Content.
   
   Topic: Copywriting
   Headline: How to write a compelling copy in 5 minutes? 
