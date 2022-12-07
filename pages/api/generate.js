@@ -7,7 +7,7 @@ const openai = new OpenAIApi(configuration);
 
 export default async function (req, res) {
   const completion = await openai.createCompletion({
-    model: "text-davinci-002",
+    model: "text-davinci-003",
     prompt: generatePrompt(req.body.animal),
     temperature: 0.6,
   });
@@ -17,12 +17,16 @@ export default async function (req, res) {
 function generatePrompt(animal) {
   const capitalizedAnimal =
     animal[0].toUpperCase() + animal.slice(1).toLowerCase();
-  return `Suggest three names for an animal that is a superhero.
-
-Animal: Cat
-Names: Captain Sharpclaw, Agent Fluffball, The Incredible Feline
-Animal: Dog
-Names: Ruff the Protector, Wonder Canine, Sir Barks-a-Lot
-Animal: ${capitalizedAnimal}
-Names:`;
+  return `Generate 1 good headline for my Content.
+  
+  Topic: Copywriting
+  Headline: How to write a compelling copy in 5 minutes? 
+  Topic: Copywriting
+  Headline: How to earn 5-figures with one article?
+  Topic: Copywriting
+  Headline: How to keep them reading?
+  Topic: Copywriting
+  Headline: What makes you different from the rest of the copywriters?
+  Topic: ${capitalizedAnimal}
+  Headline:`;
 }

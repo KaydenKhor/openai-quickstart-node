@@ -29,12 +29,12 @@ export default function Home() {
 
       <main className={styles.main}>
         <img src="/dog.png" className={styles.icon} />
-        <h3>Name my pet</h3>
+        <h3>REELS & SHORTS Title generation</h3>
         <form onSubmit={onSubmit}>
           <input
             type="text"
             name="animal"
-            placeholder="Enter an animal"
+            placeholder="Enter a topic"
             value={animalInput}
             onChange={(e) => setAnimalInput(e.target.value)}
           />
